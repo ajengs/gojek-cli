@@ -3,12 +3,18 @@ module GoCLI
   class View
     # This is a class method called ".registration"
     # It receives one argument, opts with default value of empty hash
-    # TODO: prompt user to input name and email
+    # TODO: prompt user to input name and email DONE
     def self.registration(opts = {})
       form = opts
 
       puts 'Registration'
       puts ''
+
+      print 'Your name: '
+      form[:name] = gets.chomp
+
+      print 'Your email: '
+      form[:email] = gets.chomp
 
       print 'Your phone: '
       form[:phone] = gets.chomp
@@ -56,14 +62,17 @@ module GoCLI
       form
     end
 
-    # TODO: Complete view_profile method
+    # TODO: Complete view_profile method DONE
     def self.view_profile(opts = {})
       form = opts
-
+      user = form[:user]
       puts 'View Profile'
       puts ''
 
       # Show user data here
+      puts "Name  : #{user.name}"
+      puts "Email : #{user.email}"
+      puts "Phone : #{user.phone}"
       puts ''
 
       puts '1. Edit Profile'
@@ -78,19 +87,96 @@ module GoCLI
     # TODO: Complete edit_profile method
     # This is invoked if user chooses Edit Profile menu when viewing profile
     def self.edit_profile(opts = {})
+      form = opts
+
+      puts 'Edit Profile'
+      puts ''
+
+      print 'Your name: '
+      form[:name] = gets.chomp
+
+      print 'Your email: '
+      form[:email] = gets.chomp
+
+      print 'Your phone: '
+      form[:phone] = gets.chomp
+
+      print 'Your password: '
+      form[:password] = gets.chomp
+      puts ''
+
+      puts '1. Save'
+      puts '2. Cancel'
+      print 'Enter your option: '
+      form[:steps] << {id: __method__, option: gets.chomp}
+
+      form
     end
 
     # TODO: Complete order_goride method
     def self.order_goride(opts = {})
+      form = opts
+
+      puts 'Go-Ride'
+      puts ''
+
+      print 'Your pickup location: '
+      form[:origin] = gets.chomp
+
+      print 'Your destination: '
+      form[:destination] = gets.chomp
+      puts ''
+      form[:steps] << {id: __method__}
+
+      form
     end
 
     # TODO: Complete order_goride_confirm method
     # This is invoked after user finishes inputting data in order_goride method
     def self.order_goride_confirm(opts = {})
+      form = opts
+      order = form[:order]
+
+      puts 'Confirm order Go-Ride'
+      puts ''
+
+      puts "Your pickup location: #{order.origin_name}"
+      puts "Your destination    : #{order.destination_name}"
+      puts "Fare                : Rp#{order.fare}"
+      puts ''
+
+      puts '1. Order'
+      puts '2. Reset order'
+      puts '3. Back to main menu'
+      print 'Enter your option: '
+
+      form[:steps] << {id: __method__, option: gets.chomp}
+
+      form
     end
 
     # TODO: Complete view_order_history method
     def self.view_order_history(opts = {})
+      form = opts
+      order_history = form[:order_history]
+
+      puts 'Order History'
+      puts ''
+      order_history.each do |order|
+        puts "Date/Time   : #{order['timestamp']}"
+        puts "Pickup      : #{order['origin']}"
+        puts "Destination : #{order['destination']}"
+        puts "Fare        : #{order['est_price']}"
+        puts '--------------------------------------'
+        puts ''
+      end
+      puts ''
+
+      puts '1. Back to main menu'
+      print 'Enter your option: '
+      form[:steps] << {id: __method__, option: gets.chomp}
+
+      form
     end
   end
 end
