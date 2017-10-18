@@ -1,0 +1,512 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"let",
+				"letter_count"
+			],
+			[
+				"wor",
+				"words"
+			],
+			[
+				"dee",
+				"deep_counter"
+			],
+			[
+				"leap",
+				"leap_years"
+			],
+			[
+				"lepa",
+				"leaps"
+			],
+			[
+				"mot",
+				"month_name"
+			],
+			[
+				"make",
+				"make_date"
+			],
+			[
+				"dist",
+				"distance"
+			],
+			[
+				"dis",
+				"dist"
+			],
+			[
+				"cos",
+				"cosine"
+			],
+			[
+				"ra",
+				"radians"
+			],
+			[
+				"mo",
+				"move_right"
+			],
+			[
+				"MOVE",
+				"move_down"
+			],
+			[
+				"move",
+				"move_left"
+			],
+			[
+				"print",
+				"print_person_id"
+			],
+			[
+				"pe",
+				"person_id"
+			],
+			[
+				"perso",
+				"person_id"
+			],
+			[
+				"arr",
+				"arr2"
+			],
+			[
+				"sel",
+				"self"
+			],
+			[
+				"earth",
+				"earth_circumference"
+			],
+			[
+				"so",
+				"show_population"
+			],
+			[
+				"people",
+				"people_count"
+			],
+			[
+				"peo",
+				"people_count"
+			],
+			[
+				"num",
+				"num_to_words"
+			],
+			[
+				"dir",
+				"dir_num"
+			],
+			[
+				"to_s",
+				"to_s"
+			],
+			[
+				"num_",
+				"num_to_s"
+			],
+			[
+				"to",
+				"to_s"
+			],
+			[
+				"rom",
+				"roman_numbers"
+			],
+			[
+				"roam",
+				"roman_numbers"
+			],
+			[
+				"roma",
+				"roman_numbers"
+			],
+			[
+				"roman",
+				"roman_numbers"
+			],
+			[
+				"all",
+				"all_fixnum"
+			],
+			[
+				"di",
+				"dir_zero"
+			],
+			[
+				"si",
+				"size"
+			],
+			[
+				"sum",
+				"sum_of_cubes"
+			],
+			[
+				"cand",
+				"candidate"
+			],
+			[
+				"gu",
+				"github_points"
+			],
+			[
+				"ap",
+				"applied_recently"
+			],
+			[
+				"write",
+				"write_apple"
+			],
+			[
+				"fie",
+				"filename"
+			],
+			[
+				"in",
+				"input_stream"
+			],
+			[
+				"file",
+				"filename"
+			],
+			[
+				"to_",
+				"to_i"
+			],
+			[
+				"us",
+				"user_name"
+			],
+			[
+				"res",
+				"res_main"
+			],
+			[
+				"al",
+				"alphabet"
+			],
+			[
+				"hsh",
+				"hsh_result"
+			],
+			[
+				"bat",
+				"batman_v_superman_lambda"
+			],
+			[
+				"ca",
+				"call"
+			],
+			[
+				"syb",
+				"symbol"
+			],
+			[
+				"sy",
+				"symbolize"
+			],
+			[
+				"str",
+				"strings"
+			],
+			[
+				"P",
+				"Proc"
+			],
+			[
+				"nam",
+				"name"
+			],
+			[
+				"p",
+				"puts"
+			],
+			[
+				"sub",
+				"substract"
+			],
+			[
+				"op",
+				"options"
+			],
+			[
+				"n",
+				"n"
+			],
+			[
+				"new",
+				"new_arr"
+			],
+			[
+				"eac",
+				"each"
+			],
+			[
+				"fin",
+				"find_occurence"
+			],
+			[
+				"uni",
+				"unique_sum"
+			],
+			[
+				"mov",
+				"movie_ratings"
+			],
+			[
+				"rat",
+				"ratings3"
+			],
+			[
+				"rating",
+				"ratings1"
+			],
+			[
+				"odd",
+				"odd_index"
+			],
+			[
+				"union",
+				"union_jack_2"
+			],
+			[
+				"els",
+				"else"
+			],
+			[
+				"i",
+				"i"
+			],
+			[
+				"pa",
+				"palindromes"
+			],
+			[
+				"for",
+				"format_phone_number"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 130.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/ajeng/Documents/week-2/2/number_sorter_spec.rb",
+		"/home/ajeng/Documents/week-2/2/game_spec.rb",
+		"/home/ajeng/Documents/week-2/2/game.rb",
+		"/home/ajeng/Documents/week-2/2/deep_counter_spec.rb",
+		"/home/ajeng/Documents/week-2/2/deep_counter.rb",
+		"/home/ajeng/Documents/week-2/2/palindromes_spec.rb",
+		"/home/ajeng/Documents/week-2/2/palindromes.rb",
+		"/home/ajeng/Documents/week-2/2/number_sorter.rb",
+		"/home/ajeng/Documents/week-2/2/letter_counter_spec.rb",
+		"/home/ajeng/Documents/week-2/2/letter_counter.rb",
+		"/home/ajeng/Documents/week-2/2/sentence_maker_spec.rb",
+		"/home/ajeng/Documents/week-2/2/sentence_maker.rb",
+		"/home/ajeng/Documents/week-1/5/ruby_test_week_1-ajeng.rb",
+		"/home/ajeng/Documents/week-1/2/exercise-loop.rb",
+		"/home/ajeng/Documents/week-1/3/hash-exercise.rb",
+		"/home/ajeng/Documents/week-1/3/array.rb",
+		"/home/ajeng/Documents/week-1/4/bpl.rb",
+		"/home/ajeng/Documents/week-1/3/array-exercise",
+		"/home/ajeng/Documents/week-1/4/methods.rb",
+		"/home/ajeng/Documents/week-1/3/array-exercise.rb",
+		"/home/ajeng/Documents/week-1/3/hash.rb",
+		"/home/ajeng/Documents/week-1/4/codewars.rb",
+		"/home/ajeng/Documents/week-2/2/exercises.rb",
+		"/home/ajeng/Documents/week-2/2/combine.rb",
+		"/home/ajeng/Documents/week-2/2/module.rb",
+		"/home/ajeng/Documents/week-2/1/tugas.rb",
+		"/home/ajeng/Documents/week-2/1/methods.rb",
+		"/home/ajeng/Documents/week-2/1/inheritance.rb",
+		"/home/ajeng/Documents/week-2/1/class.rb",
+		"/bin/bash",
+		"/home/ajeng/Documents/2/exercise-loop.rb",
+		"/home/ajeng/Documents/2/exercise-datatype.rb",
+		"/home/ajeng/Documents/5/io-exercise.rb",
+		"/home/ajeng/Documents/5/apple.txt",
+		"/home/ajeng/Documents/3/array.rb",
+		"/home/ajeng/Documents/3/array-exercise.rb",
+		"/home/ajeng/Documents/3/hash.rb",
+		"/home/ajeng/Documents/3/hash-exercise.rb",
+		"/home/ajeng/Documents/4/methods.rb",
+		"/home/ajeng/Documents/4/bpl.rb",
+		"/home/ajeng/Documents/4/codewars.rb",
+		"/home/ajeng/Documents/5/io.rb",
+		"/home/ajeng/Documents/5/read_file.rb",
+		"/home/ajeng/Documents/5/write_file.rb",
+		"/home/ajeng/Documents/5/6.txt",
+		"/home/ajeng/Documents/5/uud1945.txt",
+		"/home/ajeng/Documents/5/1.txt",
+		"/home/ajeng/Documents/5/2.txt",
+		"/home/ajeng/Documents/5/3.txt",
+		"/home/ajeng/Documents/5/4.txt",
+		"/home/ajeng/Documents/2/datatype.rb",
+		"/home/ajeng/Documents/exercise2.rb",
+		"/home/ajeng/Documents/day2.rb",
+		"/home/ajeng/Documents/exercise1.rb",
+		"/home/ajeng/Documents/exercise1"
+	],
+	"find":
+	{
+		"height": 21.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"\"",
+			"reduce",
+			"}\"",
+			"split"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 21.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "app.sublime-project",
+	"replace":
+	{
+		"height": 38.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
