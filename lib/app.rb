@@ -7,7 +7,7 @@ module GoCLI
   # You don't have to change anything in this file
   class App
     def self.run
-      form = {steps: []}
+      form = { steps: [] }
       controller = Controller.new
 
       # Step 1

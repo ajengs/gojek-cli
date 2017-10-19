@@ -140,9 +140,9 @@ module GoCLI
       puts 'Confirm order Go-Ride'
       puts ''
 
-      puts "Your pickup location: #{order.origin_name}"
-      puts "Your destination    : #{order.destination_name}"
-      puts "Fare                : Rp#{order.fare}"
+      puts "Your pickup location : #{order.origin_name}"
+      puts "Your destination     : #{order.destination_name}"
+      puts "Est. price           : Rp#{order.est_price}"
       puts ''
 
       puts '1. Order'
@@ -163,10 +163,10 @@ module GoCLI
       puts 'Order History'
       puts ''
       order_history.each do |order|
-        puts "Date/Time   : #{order['timestamp']}"
-        puts "Pickup      : #{order['origin']}"
-        puts "Destination : #{order['destination']}"
-        puts "Fare        : #{order['est_price']}"
+        puts "Date/Time   : #{order.timestamp}"
+        puts "Pickup      : #{order.origin_name}"
+        puts "Destination : #{order.destination_name}"
+        puts "Fare        : #{order.est_price}"
         puts '--------------------------------------'
         puts ''
       end
