@@ -1,11 +1,11 @@
 # order.rb
 require 'json'
 
-# Order class
 module GoCLI
+  # Order class
   class Order
     attr_accessor :timestamp, :origin, :destination, :est_price
-    attr_accessor :origin_name, :destination_name
+    attr_accessor :origin_name, :destination_name, :type
 
     def initialize(opts = {})
       @timestamp = opts[:timestamp] || Time.now
@@ -13,6 +13,8 @@ module GoCLI
       @destination = opts[:destination].coord
       @origin_name = opts[:origin].name
       @destination_name = opts[:destination].name
+      @type = opts[:type]
+      @price_per_km = @type == 'bike' ? 1_500 : 2_500
       @est_price = opts[:est_price] || calculate_est_price
     end
 
@@ -27,7 +29,8 @@ module GoCLI
             timestamp: o['timestamp'],
             origin: Location.new(name: o['origin']),
             destination: Location.new(name: o['destination']),
-            est_price: o['est_price']
+            est_price: o['est_price'],
+            type: o['type']
         )
       end
       order_all
@@ -40,7 +43,13 @@ module GoCLI
         data = JSON.parse(file)
       end
 
-      data << { timestamp: @timestamp, origin: @origin_name, destination: @destination_name, est_price: @est_price }
+      data << {
+        timestamp: @timestamp,
+        origin: @origin_name,
+        destination: @destination_name,
+        est_price: @est_price,
+        type: @type
+      }
       File.open("#{File.expand_path(File.dirname(__FILE__))}/../../data/orders.json", 'w') do |f|
         f.write JSON.pretty_generate(data)
       end
@@ -58,10 +67,11 @@ module GoCLI
 
       data.each_with_index do |driver, i|
         distance = calculate_distance(@origin, driver['coord'])
-        next unless distance <= nearest_driver
+        next unless distance <= nearest_driver && driver['type'] == @type
         nearest_driver = distance
         designated[:driver] = driver['driver']
         designated[:coord] = driver['coord']
+        designated[:type] = driver['type']
         choosen = i
       end
 
@@ -84,7 +94,7 @@ module GoCLI
     end
 
     def calculate_est_price
-      est_price = calculate_distance(@origin, @destination) * 1_500
+      est_price = calculate_distance(@origin, @destination) * @price_per_km
       est_price.round
     end
   end

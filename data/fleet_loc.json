@@ -4,27 +4,39 @@
     "coord": [
       10,
       14
-    ]
+    ],
+    "type": "bike"
   },
   {
     "driver": "Anna",
     "coord": [
       40,
       5
-    ]
+    ],
+    "type": "bike"
   },
   {
     "driver": "Bona",
     "coord": [
-      20,
+      15,
       35
-    ]
+    ],
+    "type": "bike"
   },
   {
     "driver": "Agus",
     "coord": [
-      15,
+      20,
       35
-    ]
+    ],
+    "type": "bike"
+  },
+  {
+    "driver": "Jun",
+    "coord": [
+      20,
+      35
+    ],
+    "type": "car"
   }
 ]

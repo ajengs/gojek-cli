@@ -28,10 +28,10 @@ module GoCLI
       form[:user] = user
       form
     end
-    
+
     def login(opts = {})
       halt = false
-      while !halt
+      until halt
         clear_screen(opts)
         form = View.login(opts)
 
@@ -44,7 +44,7 @@ module GoCLI
 
       form
     end
-    
+
     def main_menu(opts = {})
       clear_screen(opts)
       form = View.main_menu(opts)
@@ -64,11 +64,11 @@ module GoCLI
       when 5
         exit(true)
       else
-        form[:flash_msg] = "Wrong option entered, please retry."
+        form[:flash_msg] = 'Wrong option entered, please retry'
         main_menu(form)
       end
     end
-    
+
     def view_profile(opts = {})
       clear_screen(opts)
       form = View.view_profile(opts)
@@ -79,12 +79,12 @@ module GoCLI
       when 2
         main_menu(form)
       else
-        form[:flash_msg] = "Wrong option entered, please retry."
+        form[:flash_msg] = 'Wrong option entered, please retry'
         view_profile(form)
       end
     end
 
-    # This will be invoked when user choose 
+    # This will be invoked when user choose
     # Edit Profile menu in view_profile screen
     def edit_profile(opts = {})
       clear_screen(opts)
@@ -92,12 +92,12 @@ module GoCLI
       form = View.edit_profile(opts)
 
       user = User.new(
-          name:     form[:name],
-          email:    form[:email],
-          phone:    form[:phone],
-          password: form[:password],
-          gopay:    form[:user].gopay
-        )
+        name:     form[:name],
+        email:    form[:email],
+        phone:    form[:phone],
+        password: form[:password],
+        gopay:    form[:user].gopay
+      )
 
       case form[:steps].last[:option].to_i
       when 1
@@ -122,29 +122,40 @@ module GoCLI
       clear_screen(opts)
 
       form = View.order_goride(opts)
+      case form[:steps].last[:option].to_i
+      when 1
+        form[:type] = 'bike'
+      when 2
+        form[:type] = 'car'
+      else
+        form[:flash_msg] = 'Wrong option entered, please retry'
+        order_goride(form)
+      end
 
       origin_coord = Location.find(form[:origin])
       destination_coord = Location.find(form[:destination])
 
       if origin_coord.empty? || destination_coord.empty?
         form[:flash_msg] = 'Sorry, the route you requested is not yet available'
-        order_goride(form)
+        form[:result] = 'failed'
+        order_goride_result(form)
       else
         origin = Location.new(
-            name:  form[:origin],
-            coord: origin_coord
-          )
-        
+          name:  form[:origin],
+          coord: origin_coord
+        )
+
         destination = Location.new(
-            name:  form[:destination],
-            coord: destination_coord
-          )
-        
+          name:  form[:destination],
+          coord: destination_coord
+        )
+
         order = Order.new(
-            origin:      origin,
-            destination: destination
-          )
-        
+          origin:      origin,
+          destination: destination,
+          type:        form[:type]
+        )
+
         form[:order] = order
         order_goride_confirm(form)
       end
@@ -161,17 +172,15 @@ module GoCLI
       case form[:steps].last[:option].to_i
       when 1
         order.save! if validate_driver(form)[:result] == 'success'
-        order_goride_result(form)  
+        order_goride_result(form)
       when 2
         if user.gopay < order.est_price
-          form[:flash_msg] = "Your Go-pay balance is not sufficient. Please top-up first"
+          form[:flash_msg] = 'Your Go-pay balance is not sufficient. Please top-up first'
           form[:result] = 'failed'
-        else
-          if validate_driver(form)[:result] == 'success'
-            order.save!
-            user.gopay -= order.est_price
-            user.save!
-          end
+        elsif validate_driver(form)[:result] == 'success'
+          order.save!
+          user.gopay -= order.est_price
+          user.save!
         end
         order_goride_result(form)
       when 3
@@ -180,10 +189,10 @@ module GoCLI
         main_menu(form)
       else
         form[:flash_msg] = 'Wrong option entered, please retry'
-        order_goride(form)
+        order_goride_confirm(form)
       end
     end
-    
+
     def order_goride_result(opts = {})
       clear_screen(opts)
 
@@ -201,7 +210,7 @@ module GoCLI
 
     def view_order_history(opts = {})
       clear_screen(opts)
-      
+
       opts[:order_history] = Order.load_all
       form = View.view_order_history(opts)
       case form[:steps].last[:option].to_i
@@ -209,7 +218,7 @@ module GoCLI
         main_menu(form)
       else
         form[:flash_msg] = 'Wrong option entered, please retry'
-        order_goride(form)
+        view_order_history(form)
       end
     end
 
@@ -232,14 +241,14 @@ module GoCLI
     end
 
   protected
-    # You don't need to modify this 
+
+    # You don't need to modify this
     def clear_screen(opts = {})
-      Gem.win_platform? ? (system "cls") : (system "clear")
-      if opts[:flash_msg]
-        puts opts[:flash_msg]
-        puts ''
-        opts[:flash_msg] = nil
-      end
+      Gem.win_platform? ? (system 'cls') : (system 'clear')
+      return unless opts[:flash_msg]
+      puts opts[:flash_msg]
+      puts ''
+      opts[:flash_msg] = nil
     end
 
     def validate_driver(opts = {})
@@ -250,12 +259,9 @@ module GoCLI
       if driver.empty?
         form[:flash_msg] = "Sorry, there's no driver near your pickup area"
         form[:result] = 'failed'
-        # order_goride_result(form)
       else
-        # order.save!
         form[:flash_msg] = "Successfully created order. You are assigned to #{driver[:driver]}"
         form[:result] = 'success'
-        # order_goride_result(form)
       end
       form
     end

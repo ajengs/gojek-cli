@@ -118,5 +118,25 @@
     "origin": "menteng",
     "destination": "kemang",
     "est_price": 16771
+  },
+  {
+    "timestamp": "2017-10-19 15:45:12 +0700",
+    "origin": "blok m",
+    "destination": "kemang",
+    "est_price": 12500
+  },
+  {
+    "timestamp": "2017-10-19 15:48:14 +0700",
+    "origin": "blok m",
+    "destination": "kemang",
+    "est_price": 7500,
+    "type": "bike"
+  },
+  {
+    "timestamp": "2017-10-19 15:48:33 +0700",
+    "origin": "kemang",
+    "destination": "blok m",
+    "est_price": 7500,
+    "type": "bike"
   }
 ]

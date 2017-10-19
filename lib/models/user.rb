@@ -1,8 +1,8 @@
 # user.rb
 require 'json'
 
-# User class
 module GoCLI
+  # User class
   class User
     attr_accessor :phone, :password, :name, :email, :gopay
 

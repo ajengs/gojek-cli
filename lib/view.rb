@@ -22,7 +22,7 @@ module GoCLI
       print 'Your password: '
       form[:password] = gets.chomp
 
-      form[:steps] << {id: __method__}
+      form[:steps] << { id: __method__ }
 
       form
     end
@@ -39,7 +39,7 @@ module GoCLI
       print 'Enter your password: '
       form[:password] = gets.chomp
 
-      form[:steps] << {id: __method__}
+      form[:steps] << { id: __method__ }
 
       form
     end
@@ -58,7 +58,7 @@ module GoCLI
       puts '5. Exit'
 
       print 'Enter your option: '
-      form[:steps] << {id: __method__, option: gets.chomp}
+      form[:steps] << {id: __method__, option: gets.chomp }
 
       form
     end
@@ -81,7 +81,7 @@ module GoCLI
       puts '2. Back'
 
       print 'Enter your option: '
-      form[:steps] << {id: __method__, option: gets.chomp}
+      form[:steps] << { id: __method__, option: gets.chomp }
 
       form
     end
@@ -110,7 +110,7 @@ module GoCLI
       puts '1. Save'
       puts '2. Cancel'
       print 'Enter your option: '
-      form[:steps] << {id: __method__, option: gets.chomp}
+      form[:steps] << { id: __method__, option: gets.chomp }
 
       form
     end
@@ -122,13 +122,18 @@ module GoCLI
       puts 'Go-Ride'
       puts ''
 
-      print 'Your pickup location: '
+      print 'Your pickup location : '
       form[:origin] = gets.chomp
 
-      print 'Your destination: '
+      print 'Your destination     : '
       form[:destination] = gets.chomp
       puts ''
-      form[:steps] << {id: __method__}
+
+      puts  'Type'
+      puts  '1. Bike'
+      puts  '2. Car'
+      print 'Choose vehicle type : '
+      form[:steps] << { id: __method__, option: gets.chomp }
 
       form
     end
@@ -144,6 +149,7 @@ module GoCLI
 
       puts "Your pickup location : #{order.origin_name}"
       puts "Your destination     : #{order.destination_name}"
+      puts "Vehicle type         : #{order.type}"
       puts "Est. price           : Rp#{order.est_price}"
       puts ''
 
@@ -153,7 +159,7 @@ module GoCLI
       puts '4. Back to main menu'
       print 'Enter your option: '
 
-      form[:steps] << {id: __method__, option: gets.chomp}
+      form[:steps] << { id: __method__, option: gets.chomp }
 
       form
     end
@@ -168,7 +174,7 @@ module GoCLI
       puts '2. Back to main menu'
       print 'Enter your option: '
 
-      form[:steps] << {id: __method__, option: gets.chomp}
+      form[:steps] << { id: __method__, option: gets.chomp }
 
       form
     end
@@ -184,6 +190,7 @@ module GoCLI
         puts "Date/Time   : #{order.timestamp}"
         puts "Pickup      : #{order.origin_name}"
         puts "Destination : #{order.destination_name}"
+        puts "Type        : #{order.type}"
         puts "Fare        : #{order.est_price}"
         puts '--------------------------------------'
         puts ''
@@ -192,7 +199,7 @@ module GoCLI
 
       puts '1. Back to main menu'
       print 'Enter your option: '
-      form[:steps] << {id: __method__, option: gets.chomp}
+      form[:steps] << { id: __method__, option: gets.chomp }
 
       form
     end
@@ -210,7 +217,7 @@ module GoCLI
       puts '1. Top up'
       puts '2. Cancel'
       print 'Enter your option: '
-      form[:steps] << {id: __method__, option: gets.chomp}
+      form[:steps] << { id: __method__, option: gets.chomp }
 
       form
     end
