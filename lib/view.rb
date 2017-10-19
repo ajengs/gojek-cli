@@ -54,7 +54,8 @@ module GoCLI
       puts '1. View Profile'
       puts '2. Order Go-Ride'
       puts '3. View Order History'
-      puts '4. Exit'
+      puts '4. Top-up Go-pay'
+      puts '5. Exit'
 
       print 'Enter your option: '
       form[:steps] << {id: __method__, option: gets.chomp}
@@ -70,9 +71,10 @@ module GoCLI
       puts ''
 
       # Show user data here
-      puts "Name  : #{user.name}"
-      puts "Email : #{user.email}"
-      puts "Phone : #{user.phone}"
+      puts "Name   : #{user.name}"
+      puts "Email  : #{user.email}"
+      puts "Phone  : #{user.phone}"
+      puts "Go-pay : Rp#{user.gopay}"
       puts ''
 
       puts '1. Edit Profile'
@@ -145,9 +147,10 @@ module GoCLI
       puts "Est. price           : Rp#{order.est_price}"
       puts ''
 
-      puts '1. Order'
-      puts '2. Reset order'
-      puts '3. Back to main menu'
+      puts '1. Order with cash'
+      puts '2. Order with Go-pay'
+      puts '3. Reset order'
+      puts '4. Back to main menu'
       print 'Enter your option: '
 
       form[:steps] << {id: __method__, option: gets.chomp}
@@ -188,6 +191,24 @@ module GoCLI
       puts ''
 
       puts '1. Back to main menu'
+      print 'Enter your option: '
+      form[:steps] << {id: __method__, option: gets.chomp}
+
+      form
+    end
+
+    def self.topup_gopay(opts = {})
+      form = opts
+      puts 'Top Up Go-pay'
+      puts ''
+
+      puts "Your Go-pay balance is : #{form[:user].gopay}"
+      print 'Top up amount : '
+      form[:topup] = gets.chomp.to_i
+
+      puts ''
+      puts '1. Top up'
+      puts '2. Cancel'
       print 'Enter your option: '
       form[:steps] << {id: __method__, option: gets.chomp}
 

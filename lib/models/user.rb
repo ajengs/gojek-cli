@@ -4,7 +4,7 @@ require 'json'
 # User class
 module GoCLI
   class User
-    attr_accessor :phone, :password, :name, :email
+    attr_accessor :phone, :password, :name, :email, :gopay
 
     # TODO: DONE
     # 1. Add two instance variables: name and email
@@ -14,6 +14,7 @@ module GoCLI
       @password = opts[:password] || ''
       @name = opts[:name] || ''
       @email = opts[:email] || ''
+      @gopay = opts[:gopay] || 0
     end
 
     def self.load
@@ -26,7 +27,8 @@ module GoCLI
         name:     data['name'],
         email:    data['email'],
         phone:    data['phone'],
-        password: data['password']
+        password: data['password'],
+        gopay:    data['gopay']
       )
     end
 
@@ -39,7 +41,7 @@ module GoCLI
 
     def save!
       # TODO: Add validation before writing user data to file
-      user = { name: @name, email: @email, phone: @phone, password: @password }
+      user = { name: @name, email: @email, phone: @phone, password: @password, gopay: @gopay }
       File.open("#{File.expand_path(File.dirname(__FILE__))}/../../data/user.json", 'w') do |f|
         f.write JSON.pretty_generate(user)
       end

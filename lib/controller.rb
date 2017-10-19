@@ -60,6 +60,8 @@ module GoCLI
         # Step 4.3
         view_order_history(form)
       when 4
+        topup_gopay(form)
+      when 5
         exit(true)
       else
         form[:flash_msg] = "Wrong option entered, please retry."
@@ -93,7 +95,8 @@ module GoCLI
           name:     form[:name],
           email:    form[:email],
           phone:    form[:phone],
-          password: form[:password]
+          password: form[:password],
+          gopay:    form[:user].gopay
         )
 
       case form[:steps].last[:option].to_i
@@ -153,22 +156,27 @@ module GoCLI
 
       form = View.order_goride_confirm(opts)
       order = form[:order]
+      user = form[:user]
+
       case form[:steps].last[:option].to_i
       when 1
-        driver = order.find_driver
-        if driver.empty?
-          form[:flash_msg] = "Sorry, there's no driver near your pickup area"
-          form[:result] = 'failed'
-          order_goride_result(form)
-        else
-          order.save!
-          form[:flash_msg] = "Successfully created order. You are assigned to #{driver[:driver]}"
-          form[:result] = 'success'
-          order_goride_result(form)
-        end
+        order.save! if validate_driver(form)[:result] == 'success'
+        order_goride_result(form)  
       when 2
-        order_goride(form)
+        if user.gopay < order.est_price
+          form[:flash_msg] = "Your Go-pay balance is not sufficient. Please top-up first"
+          form[:result] = 'failed'
+        else
+          if validate_driver(form)[:result] == 'success'
+            order.save!
+            user.gopay -= order.est_price
+            user.save!
+          end
+        end
+        order_goride_result(form)
       when 3
+        order_goride(form)
+      when 4
         main_menu(form)
       else
         form[:flash_msg] = 'Wrong option entered, please retry'
@@ -204,6 +212,25 @@ module GoCLI
         order_goride(form)
       end
     end
+
+    def topup_gopay(opts = {})
+      clear_screen(opts)
+
+      form = View.topup_gopay(opts)
+      case form[:steps].last[:option].to_i
+      when 1
+        form[:user].gopay += form[:topup]
+        form[:user].save!
+        form[:flash_msg] = "Your Go-pay balance is now #{form[:user].gopay}"
+        main_menu(form)
+      when 2
+        main_menu(form)
+      else
+        form[:flash_msg] = 'Wrong option entered, please retry'
+        topup_gopay(form)
+      end
+    end
+
   protected
     # You don't need to modify this 
     def clear_screen(opts = {})
@@ -215,5 +242,22 @@ module GoCLI
       end
     end
 
+    def validate_driver(opts = {})
+      form = opts
+      order = form[:order]
+
+      driver = order.find_driver
+      if driver.empty?
+        form[:flash_msg] = "Sorry, there's no driver near your pickup area"
+        form[:result] = 'failed'
+        # order_goride_result(form)
+      else
+        # order.save!
+        form[:flash_msg] = "Successfully created order. You are assigned to #{driver[:driver]}"
+        form[:result] = 'success'
+        # order_goride_result(form)
+      end
+      form
+    end
   end
 end
