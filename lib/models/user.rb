@@ -41,7 +41,7 @@ module GoCLI
       # TODO: Add validation before writing user data to file
       user = { name: @name, email: @email, phone: @phone, password: @password }
       File.open("#{File.expand_path(File.dirname(__FILE__))}/../../data/user.json", 'w') do |f|
-        f.write JSON.generate(user)
+        f.write JSON.pretty_generate(user)
       end
     end
 

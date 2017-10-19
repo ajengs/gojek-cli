@@ -155,6 +155,21 @@ module GoCLI
       form
     end
 
+    def self.order_goride_result(opts = {})
+      form = opts
+
+      puts "Order #{form[:result]}"
+      puts ''
+
+      puts '1. Re-order'
+      puts '2. Back to main menu'
+      print 'Enter your option: '
+
+      form[:steps] << {id: __method__, option: gets.chomp}
+
+      form
+    end
+
     # TODO: Complete view_order_history method
     def self.view_order_history(opts = {})
       form = opts

@@ -158,11 +158,13 @@ module GoCLI
         driver = order.find_driver
         if driver.empty?
           form[:flash_msg] = "Sorry, there's no driver near your pickup area"
-          order_goride(form)
+          form[:result] = 'failed'
+          order_goride_result(form)
         else
           order.save!
           form[:flash_msg] = "Successfully created order. You are assigned to #{driver[:driver]}"
-          main_menu(form)
+          form[:result] = 'success'
+          order_goride_result(form)
         end
       when 2
         order_goride(form)
@@ -171,6 +173,21 @@ module GoCLI
       else
         form[:flash_msg] = 'Wrong option entered, please retry'
         order_goride(form)
+      end
+    end
+    
+    def order_goride_result(opts = {})
+      clear_screen(opts)
+
+      form = View.order_goride_result(opts)
+      case form[:steps].last[:option].to_i
+      when 1
+        order_goride(form)
+      when 2
+        main_menu(form)
+      else
+        form[:flash_msg] = 'Wrong option entered, please retry'
+        order_goride_result(form)
       end
     end
 

@@ -4,7 +4,8 @@ require 'json'
 # Order class
 module GoCLI
   class Order
-    attr_accessor :timestamp, :origin, :destination, :est_price, :origin_name, :destination_name
+    attr_accessor :timestamp, :origin, :destination, :est_price
+    attr_accessor :origin_name, :destination_name
 
     def initialize(opts = {})
       @timestamp = opts[:timestamp] || Time.now
@@ -12,7 +13,7 @@ module GoCLI
       @destination = opts[:destination].coord
       @origin_name = opts[:origin].name
       @destination_name = opts[:destination].name
-      @est_price = opts[:est_price] || calculate_fare
+      @est_price = opts[:est_price] || calculate_est_price
     end
 
     def self.load_all
@@ -41,7 +42,7 @@ module GoCLI
 
       data << { timestamp: @timestamp, origin: @origin_name, destination: @destination_name, est_price: @est_price }
       File.open("#{File.expand_path(File.dirname(__FILE__))}/../../data/orders.json", 'w') do |f|
-        f.write JSON.generate(data)
+        f.write JSON.pretty_generate(data)
       end
     end
 
@@ -68,7 +69,7 @@ module GoCLI
         data[choosen] = designated
         data[choosen][:coord] = @destination
         File.open("#{File.expand_path(File.dirname(__FILE__))}/../../data/fleet_loc.json", 'w') do |f|
-          f.write JSON.generate(data)
+          f.write JSON.pretty_generate(data)
         end
       end
 
@@ -82,7 +83,7 @@ module GoCLI
                 (destination[1] - origin[1])**2).to_f)
     end
 
-    def calculate_fare
+    def calculate_est_price
       est_price = calculate_distance(@origin, @destination) * 1_500
       est_price.round
     end
