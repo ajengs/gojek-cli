@@ -191,8 +191,8 @@ module GoCLI
         puts "Pickup      : #{order.origin_name}"
         puts "Destination : #{order.destination_name}"
         puts "Type        : #{order.type}"
-        puts "Fare        : #{order.est_price}"
-        puts '--------------------------------------'
+        puts "Fare        : Rp#{order.est_price}"
+        puts '------------------------------------------'
         puts ''
       end
       puts ''
@@ -209,7 +209,7 @@ module GoCLI
       puts 'Top Up Go-pay'
       puts ''
 
-      puts "Your Go-pay balance is : #{form[:user].gopay}"
+      puts "Your Go-pay balance is : Rp#{form[:user].gopay}"
       print 'Top up amount : '
       form[:topup] = gets.chomp.to_i
 

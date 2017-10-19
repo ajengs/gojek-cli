@@ -138,5 +138,40 @@
     "destination": "blok m",
     "est_price": 7500,
     "type": "bike"
+  },
+  {
+    "timestamp": "2017-10-19 23:55:03 +0700",
+    "origin": "blok m",
+    "destination": "kemang",
+    "est_price": 7500,
+    "type": "bike"
+  },
+  {
+    "timestamp": "2017-10-19 23:56:12 +0700",
+    "origin": "blok m",
+    "destination": "kemang",
+    "est_price": 7500,
+    "type": "bike"
+  },
+  {
+    "timestamp": "2017-10-19 23:56:37 +0700",
+    "origin": "kemang",
+    "destination": "blok m",
+    "est_price": 7500,
+    "type": "bike"
+  },
+  {
+    "timestamp": "2017-10-19 23:56:45 +0700",
+    "origin": "kemang",
+    "destination": "blok m",
+    "est_price": 12500,
+    "type": "car"
+  },
+  {
+    "timestamp": "2017-10-20 00:01:42 +0700",
+    "origin": "kemang",
+    "destination": "sunter",
+    "est_price": 90139,
+    "type": "car"
   }
 ]

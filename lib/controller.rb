@@ -1,6 +1,7 @@
 require_relative './models/user'
 require_relative './models/order'
 require_relative './models/location'
+require_relative './models/driver'
 require_relative './view'
 
 module GoCLI
@@ -171,7 +172,10 @@ module GoCLI
 
       case form[:steps].last[:option].to_i
       when 1
-        order.save! if validate_driver(form)[:result] == 'success'
+        if validate_driver(form)[:result] == 'success'
+          order.save!
+          form[:driver].save!
+        end
         order_goride_result(form)
       when 2
         if user.gopay < order.est_price
@@ -181,6 +185,7 @@ module GoCLI
           order.save!
           user.gopay -= order.est_price
           user.save!
+          form[:driver].save!
         end
         order_goride_result(form)
       when 3
@@ -255,13 +260,14 @@ module GoCLI
       form = opts
       order = form[:order]
 
-      driver = order.find_driver
-      if driver.empty?
+      driver_assigned = Driver.find(form)
+      if driver_assigned.coord.empty?
         form[:flash_msg] = "Sorry, there's no driver near your pickup area"
         form[:result] = 'failed'
       else
-        form[:flash_msg] = "Successfully created order. You are assigned to #{driver[:driver]}"
+        form[:flash_msg] = "Successfully created order. You are assigned to #{driver_assigned.driver}"
         form[:result] = 'success'
+        form[:driver] = driver_assigned
       end
       form
     end

@@ -1,8 +1,8 @@
 # location.rb
 require 'json'
 
-# Location class
 module GoCLI
+  # Location class
   class Location
     attr_accessor :name, :coord
 
@@ -12,9 +12,9 @@ module GoCLI
     end
 
     def self.load_all
-      return nil unless File.file?("#{File.expand_path(File.dirname(__FILE__))}/../../data/locations.json")
+      return nil unless File.file?("#{Dir.pwd}/data/locations.json")
 
-      file = File.read("#{File.expand_path(File.dirname(__FILE__))}/../../data/locations.json")
+      file = File.read("#{Dir.pwd}/data/locations.json")
       data = JSON.parse(file)
       locs = []
       data.each do |l|
@@ -36,6 +36,11 @@ module GoCLI
         end
       end
       coordinate
+    end
+
+    def self.calculate_distance(origin, destination)
+      Math.sqrt(((destination[0] - origin[0])**2 +
+                (destination[1] - origin[1])**2).to_f)
     end
   end
 end
