@@ -5,7 +5,7 @@ module GoCLI
   # Order class
   class Order
     attr_accessor :timestamp, :origin, :destination, :est_price
-    attr_accessor :origin_name, :destination_name, :type
+    attr_accessor :origin_name, :destination_name, :type, :discount
 
     def initialize(opts = {})
       @timestamp = opts[:timestamp] || Time.now
@@ -15,15 +15,17 @@ module GoCLI
       @destination_name = opts[:destination].name
       @type = opts[:type]
       @price_per_km = @type == 'bike' ? 1_500 : 2_500
-      @est_price = opts[:est_price] || calculate_est_price
+      @discount = opts[:discount]
+      @est_price = opts[:est_price] || calculate_est_price - @discount < 0 ? 0 : calculate_est_price
     end
 
     def self.load_all
-      return nil unless File.file?("#{Dir.pwd}/data/orders.json")
+      order_all = []
+      return order_all unless File.file?("#{Dir.pwd}/data/orders.json")
 
       file = File.read("#{Dir.pwd}/data/orders.json")
       data = JSON.parse(file)
-      order_all = []
+      
       data.each do |o|
         order_all << new(
             timestamp: o['timestamp'],
@@ -53,6 +55,22 @@ module GoCLI
       File.open("#{Dir.pwd}/data/orders.json", 'w') do |f|
         f.write JSON.pretty_generate(data)
       end
+    end
+
+    def self.promo(code)
+      disc = 0
+      return disc unless File.file?("#{Dir.pwd}/data/promo.json")
+      
+      file = File.read("#{Dir.pwd}/data/promo.json")
+      data = JSON.parse(file)
+      
+      data.each do |o|
+        if o['code'] == code.downcase
+          disc = o['discount']
+          break
+        end
+      end
+      disc
     end
 
   protected

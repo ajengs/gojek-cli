@@ -133,31 +133,28 @@ module GoCLI
         order_goride(form)
       end
 
-      origin_coord = Location.find(form[:origin])
-      destination_coord = Location.find(form[:destination])
+      origin = Location.find(form[:origin])
+      destination = Location.find(form[:destination])
+      discount = Order.promo(form[:promo_code])
 
-      if origin_coord.empty? || destination_coord.empty?
+      if origin.coord.empty? || destination.coord.empty?
         form[:flash_msg] = 'Sorry, the route you requested is not yet available'
         form[:result] = 'failed'
         order_goride_result(form)
       else
-        origin = Location.new(
-          name:  form[:origin],
-          coord: origin_coord
-        )
-
-        destination = Location.new(
-          name:  form[:destination],
-          coord: destination_coord
-        )
-
         order = Order.new(
           origin:      origin,
           destination: destination,
-          type:        form[:type]
+          type:        form[:type],
+          discount:    discount
         )
 
         form[:order] = order
+        if discount.positive?
+          form[:flash_msg] = "Congratulations! You got #{discount} discount from #{form[:promo_code].upcase}"
+        elsif !form[:promo_code].empty?
+          form[:flash_msg] = "Looks like #{form[:promo_code]} is a not valid promo code"
+        end
         order_goride_confirm(form)
       end
     end
@@ -265,6 +262,7 @@ module GoCLI
         form[:flash_msg] = "Sorry, there's no driver near your pickup area"
         form[:result] = 'failed'
       else
+        driver_assigned.coord = order.destination
         form[:flash_msg] = "Successfully created order. You are assigned to #{driver_assigned.driver}"
         form[:result] = 'success'
         form[:driver] = driver_assigned

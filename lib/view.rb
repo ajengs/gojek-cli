@@ -122,6 +122,9 @@ module GoCLI
       puts 'Go-Ride'
       puts ''
 
+      print 'Enter promo code     : '
+      form[:promo_code] = gets.chomp
+
       print 'Your pickup location : '
       form[:origin] = gets.chomp
 

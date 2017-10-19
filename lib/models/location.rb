@@ -7,16 +7,17 @@ module GoCLI
     attr_accessor :name, :coord
 
     def initialize(opts = {})
-      @name = opts[:name]
-      @coord = opts[:coord]
+      @name = opts[:name] || ''
+      @coord = opts[:coord] || []
     end
 
     def self.load_all
-      return nil unless File.file?("#{Dir.pwd}/data/locations.json")
+      locs = []
+      return locs unless File.file?("#{Dir.pwd}/data/locations.json")
 
       file = File.read("#{Dir.pwd}/data/locations.json")
       data = JSON.parse(file)
-      locs = []
+      
       data.each do |l|
         locs << new(
           name:  l['name'],
@@ -28,10 +29,11 @@ module GoCLI
 
     def self.find(location_name)
       locations = load_all
-      coordinate = []
+      coordinate = self.new
       locations.each do |loc|
         if loc.name == location_name.downcase
-          coordinate = loc.coord
+          coordinate.coord = loc.coord
+          coordinate.name = loc.name
           return coordinate
         end
       end

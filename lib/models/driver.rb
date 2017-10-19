@@ -6,9 +6,9 @@ module GoCLI
     attr_accessor :driver, :coord, :type
 
     def initialize(opts = {})
-      @driver = opts[:driver]
-      @coord = opts[:coord]
-      @type = opts[:type]
+      @driver = opts[:driver] || ''
+      @coord = opts[:coord] || []
+      @type = opts[:type] || ''
     end
 
     def self.find(opts = {})
