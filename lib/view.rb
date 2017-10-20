@@ -122,21 +122,20 @@ module GoCLI
       puts 'Go-Ride'
       puts ''
 
-      print 'Enter promo code     : '
-      form[:promo_code] = gets.chomp
-
       print 'Your pickup location : '
       form[:origin] = gets.chomp
 
       print 'Your destination     : '
       form[:destination] = gets.chomp
-      puts ''
-
+      
       puts  'Type'
       puts  '1. Bike'
       puts  '2. Car'
-      print 'Choose vehicle type : '
+      print 'Choose vehicle type  : '
       form[:steps] << { id: __method__, option: gets.chomp }
+
+      print 'Enter promo code     : '
+      form[:promo_code] = gets.chomp
 
       form
     end
@@ -155,7 +154,7 @@ module GoCLI
       puts "Vehicle type         : #{order.type}"
       puts "Est. price           : Rp#{order.est_price}"
       puts ''
-
+      
       puts '1. Order with cash'
       puts '2. Order with Go-pay'
       puts '3. Reset order'

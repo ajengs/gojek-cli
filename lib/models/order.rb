@@ -16,7 +16,7 @@ module GoCLI
       @type = opts[:type]
       @price_per_km = @type == 'bike' ? 1_500 : 2_500
       @discount = opts[:discount]
-      @est_price = opts[:est_price] || calculate_est_price - @discount < 0 ? 0 : calculate_est_price
+      @est_price = opts[:est_price] || (calculate_est_price - @discount < 0 ? 0 : calculate_est_price)
     end
 
     def self.load_all

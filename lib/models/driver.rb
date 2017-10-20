@@ -12,7 +12,7 @@ module GoCLI
     end
 
     def self.find(opts = {})
-      designated = self.new
+      designated = new
       return designated unless File.file?("#{Dir.pwd}/data/fleet_loc.json")
       order = opts[:order]
       file = File.read("#{Dir.pwd}/data/fleet_loc.json")

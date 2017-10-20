@@ -130,7 +130,8 @@ module GoCLI
         form[:type] = 'car'
       else
         form[:flash_msg] = 'Wrong option entered, please retry'
-        order_goride(form)
+        form[:result] = 'failed'
+        order_goride_result(form)
       end
 
       origin = Location.find(form[:origin])
