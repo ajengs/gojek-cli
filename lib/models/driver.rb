@@ -11,21 +11,31 @@ module GoCLI
       @type = opts[:type] || ''
     end
 
-    def self.find(opts = {})
-      designated = new
-      return designated unless File.file?("#{Dir.pwd}/data/fleet_loc.json")
-      order = opts[:order]
+    def self.load_all
+      fleet = []
+      return fleet unless File.file?("#{Dir.pwd}/data/fleet_loc.json")
       file = File.read("#{Dir.pwd}/data/fleet_loc.json")
       data = JSON.parse(file)
+      data.each do |d|
+        fleet << new(
+            driver: d['driver'],
+            coord: d['coord'],
+            type: d['type']
+        )
+      end
+      fleet
+    end
+
+    def self.find(order)
+      data = load_all
+      designated = new
       nearest_driver = 1.0
 
       data.each do |driver|
-        distance = Location.calculate_distance(order.origin, driver['coord'])
-        next unless distance <= nearest_driver && driver['type'] == order.type
+        distance = Location.calculate_distance(order.origin.coord, driver.coord)
+        next unless distance <= nearest_driver && driver.type == order.type
         nearest_driver = distance
-        designated.driver = driver['driver']
-        designated.coord = driver['coord']
-        designated.type = driver['type']
+        designated = driver
       end
 
       designated

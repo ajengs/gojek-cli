@@ -3,23 +3,22 @@ module GoCLI
   class View
     # This is a class method called ".registration"
     # It receives one argument, opts with default value of empty hash
-    # TODO: prompt user to input name and email DONE
     def self.registration(opts = {})
       form = opts
 
       puts 'Registration'
       puts ''
 
-      print 'Your name: '
+      print 'Your name     : '
       form[:name] = gets.chomp
 
-      print 'Your email: '
+      print 'Your email    : '
       form[:email] = gets.chomp
 
-      print 'Your phone: '
+      print 'Your phone    : '
       form[:phone] = gets.chomp
 
-      print 'Your password: '
+      print 'Your password : '
       form[:password] = gets.chomp
 
       form[:steps] << { id: __method__ }
@@ -33,10 +32,10 @@ module GoCLI
       puts 'Login'
       puts ''
 
-      print 'Enter your login: '
+      print 'Enter your login    : '
       form[:login] = gets.chomp
 
-      print 'Enter your password: '
+      print 'Enter your password : '
       form[:password] = gets.chomp
 
       form[:steps] << { id: __method__ }
@@ -63,7 +62,6 @@ module GoCLI
       form
     end
 
-    # TODO: Complete view_profile method DONE
     def self.view_profile(opts = {})
       form = opts
       user = form[:user]
@@ -86,7 +84,6 @@ module GoCLI
       form
     end
 
-    # TODO: Complete edit_profile method
     # This is invoked if user chooses Edit Profile menu when viewing profile
     def self.edit_profile(opts = {})
       form = opts
@@ -94,16 +91,16 @@ module GoCLI
       puts 'Edit Profile'
       puts ''
 
-      print 'Your name: '
+      print 'Your name     : '
       form[:name] = gets.chomp
 
-      print 'Your email: '
+      print 'Your email    : '
       form[:email] = gets.chomp
 
-      print 'Your phone: '
+      print 'Your phone    : '
       form[:phone] = gets.chomp
 
-      print 'Your password: '
+      print 'Your password : '
       form[:password] = gets.chomp
       puts ''
 
@@ -115,7 +112,6 @@ module GoCLI
       form
     end
 
-    # TODO: Complete order_goride method
     def self.order_goride(opts = {})
       form = opts
 
@@ -140,7 +136,6 @@ module GoCLI
       form
     end
 
-    # TODO: Complete order_goride_confirm method
     # This is invoked after user finishes inputting data in order_goride method
     def self.order_goride_confirm(opts = {})
       form = opts
@@ -149,12 +144,12 @@ module GoCLI
       puts 'Confirm order Go-Ride'
       puts ''
 
-      puts "Your pickup location : #{order.origin_name}"
-      puts "Your destination     : #{order.destination_name}"
+      puts "Your pickup location : #{order.origin.name}"
+      puts "Your destination     : #{order.destination.name}"
       puts "Vehicle type         : #{order.type}"
       puts "Est. price           : Rp#{order.est_price}"
       puts ''
-      
+
       puts '1. Order with cash'
       puts '2. Order with Go-pay'
       puts '3. Reset order'
@@ -190,8 +185,8 @@ module GoCLI
       puts ''
       order_history.each do |order|
         puts "Date/Time   : #{order.timestamp}"
-        puts "Pickup      : #{order.origin_name}"
-        puts "Destination : #{order.destination_name}"
+        puts "Pickup      : #{order.origin.name}"
+        puts "Destination : #{order.destination.name}"
         puts "Type        : #{order.type}"
         puts "Fare        : Rp#{order.est_price}"
         puts '------------------------------------------'

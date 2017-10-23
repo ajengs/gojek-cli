@@ -18,8 +18,8 @@
   {
     "driver": "Bona",
     "coord": [
-      15,
-      35
+      25,
+      25
     ],
     "type": "bike"
   },
@@ -34,8 +34,16 @@
   {
     "driver": "Jun",
     "coord": [
-      20,
-      35
+      40,
+      5
+    ],
+    "type": "car"
+  },
+  {
+    "driver": "Rio",
+    "coord": [
+      10,
+      14
     ],
     "type": "car"
   }

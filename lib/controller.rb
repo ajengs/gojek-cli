@@ -123,6 +123,7 @@ module GoCLI
       clear_screen(opts)
 
       form = View.order_goride(opts)
+
       case form[:steps].last[:option].to_i
       when 1
         form[:type] = 'bike'
@@ -183,6 +184,7 @@ module GoCLI
           order.save!
           user.gopay -= order.est_price
           user.save!
+          form[:user] = user
           form[:driver].save!
         end
         order_goride_result(form)
@@ -263,7 +265,7 @@ module GoCLI
         form[:flash_msg] = "Sorry, there's no driver near your pickup area"
         form[:result] = 'failed'
       else
-        driver_assigned.coord = order.destination
+        driver_assigned.coord = order.destination.coord
         form[:flash_msg] = "Successfully created order. You are assigned to #{driver_assigned.driver}"
         form[:result] = 'success'
         form[:driver] = driver_assigned

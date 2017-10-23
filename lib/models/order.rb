@@ -5,14 +5,14 @@ module GoCLI
   # Order class
   class Order
     attr_accessor :timestamp, :origin, :destination, :est_price
-    attr_accessor :origin_name, :destination_name, :type, :discount
+    attr_accessor :type, :discount # :origin_name, :destination_name, 
 
     def initialize(opts = {})
       @timestamp = opts[:timestamp] || Time.now
-      @origin = opts[:origin].coord
-      @destination = opts[:destination].coord
-      @origin_name = opts[:origin].name
-      @destination_name = opts[:destination].name
+      @origin = opts[:origin]# .coord
+      @destination = opts[:destination] # .coord
+      # @origin_name = opts[:origin].name
+      # @destination_name = opts[:destination].name
       @type = opts[:type]
       @price_per_km = @type == 'bike' ? 1_500 : 2_500
       @discount = opts[:discount]
@@ -47,8 +47,8 @@ module GoCLI
 
       data << {
         timestamp: @timestamp,
-        origin: @origin_name,
-        destination: @destination_name,
+        origin: @origin.name,
+        destination: @destination.name,
         est_price: @est_price,
         type: @type
       }
@@ -76,7 +76,7 @@ module GoCLI
   protected
 
     def calculate_est_price
-      est_price = Location.calculate_distance(@origin, @destination) * @price_per_km
+      est_price = Location.calculate_distance(@origin.coord, @destination.coord) * @price_per_km
       est_price.round
     end
   end
