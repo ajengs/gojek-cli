@@ -1,0 +1,50 @@
+[
+  {
+    "driver": "Budi",
+    "coord": [
+      15,
+      35
+    ],
+    "type": "bike"
+  },
+  {
+    "driver": "Anna",
+    "coord": [
+      40,
+      5
+    ],
+    "type": "bike"
+  },
+  {
+    "driver": "Bona",
+    "coord": [
+      15,
+      35
+    ],
+    "type": "bike"
+  },
+  {
+    "driver": "Agus",
+    "coord": [
+      20,
+      35
+    ],
+    "type": "bike"
+  },
+  {
+    "driver": "Jun",
+    "coord": [
+      40,
+      5
+    ],
+    "type": "car"
+  },
+  {
+    "driver": "Rio",
+    "coord": [
+      10,
+      14
+    ],
+    "type": "car"
+  }
+]

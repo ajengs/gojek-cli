@@ -1,1 +1,86 @@
-[{"timestamp":"2017-10-17 19:27:10 +0700","origin":"kemang","destination":"blok m","est_price":0.0},{"timestamp":"2017-10-17 19:27:24 +0700","origin":"blok m","destination":"sunter","est_price":0.0},{"timestamp":"2017-10-17 19:28:26 +0700","origin":"kemang","destination":"blok m","est_price":0.0},{"timestamp":"2017-10-18 07:02:36 +0700","origin":"menteng","destination":"kemang","est_price":0.0}]
+[
+  {
+    "timestamp": "2017-10-20 01:02:00 +0700",
+    "origin": "kemang",
+    "destination": "blok m",
+    "est_price": 0,
+    "type": "bike"
+  },
+  {
+    "timestamp": "2017-10-20 09:07:45 +0700",
+    "origin": "kemang",
+    "destination": "blok m",
+    "est_price": 12500,
+    "type": "car"
+  },
+  {
+    "timestamp": "2017-10-20 09:12:43 +0700",
+    "origin": "blok m",
+    "destination": "kemang",
+    "est_price": 12500,
+    "type": "car"
+  },
+  {
+    "timestamp": "2017-10-20 09:17:55 +0700",
+    "origin": "taman anggrek",
+    "destination": "blok m",
+    "est_price": 30923,
+    "type": "bike"
+  },
+  {
+    "timestamp": "2017-10-20 09:19:23 +0700",
+    "origin": "blok m",
+    "destination": "kemang",
+    "est_price": 7500,
+    "type": "bike"
+  },
+  {
+    "timestamp": "2017-10-20 09:41:22 +0700",
+    "origin": "blok m",
+    "destination": "menteng",
+    "est_price": 21213,
+    "type": "bike"
+  },
+  {
+    "timestamp": "2017-10-20 10:17:12 +0700",
+    "origin": "blok m",
+    "destination": "kemang",
+    "est_price": 0,
+    "type": "bike"
+  },
+  {
+    "timestamp": "2017-10-20 10:18:53 +0700",
+    "origin": "kemang",
+    "destination": "sunter",
+    "est_price": 90139,
+    "type": "car"
+  },
+  {
+    "timestamp": "2017-10-22 01:27:33 +0700",
+    "origin": "kemang",
+    "destination": "blok m",
+    "est_price": 7500,
+    "type": "bike"
+  },
+  {
+    "timestamp": "2017-10-22 23:41:21 +0700",
+    "origin": "kemang",
+    "destination": "blok m",
+    "est_price": 7500,
+    "type": "bike"
+  },
+  {
+    "timestamp": "2017-10-22 23:41:53 +0700",
+    "origin": "menteng",
+    "destination": "kemang",
+    "est_price": 16771,
+    "type": "bike"
+  },
+  {
+    "timestamp": "2017-10-23 10:41:50 +0700",
+    "origin": "menteng",
+    "destination": "blok m",
+    "est_price": 21213,
+    "type": "bike"
+  }
+]
