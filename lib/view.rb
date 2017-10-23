@@ -176,7 +176,6 @@ module GoCLI
       form
     end
 
-    # TODO: Complete view_order_history method
     def self.view_order_history(opts = {})
       form = opts
       order_history = form[:order_history]

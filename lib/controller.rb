@@ -260,7 +260,7 @@ module GoCLI
       form = opts
       order = form[:order]
 
-      driver_assigned = Driver.find(form)
+      driver_assigned = Driver.find(order)
       if driver_assigned.coord.empty?
         form[:flash_msg] = "Sorry, there's no driver near your pickup area"
         form[:result] = 'failed'

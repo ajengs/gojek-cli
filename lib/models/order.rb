@@ -5,14 +5,12 @@ module GoCLI
   # Order class
   class Order
     attr_accessor :timestamp, :origin, :destination, :est_price
-    attr_accessor :type, :discount # :origin_name, :destination_name, 
+    attr_accessor :type, :discount
 
     def initialize(opts = {})
       @timestamp = opts[:timestamp] || Time.now
-      @origin = opts[:origin]# .coord
-      @destination = opts[:destination] # .coord
-      # @origin_name = opts[:origin].name
-      # @destination_name = opts[:destination].name
+      @origin = opts[:origin]
+      @destination = opts[:destination]
       @type = opts[:type]
       @price_per_km = @type == 'bike' ? 1_500 : 2_500
       @discount = opts[:discount]
