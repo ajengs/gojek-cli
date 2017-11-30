@@ -29,12 +29,12 @@ end
 
 def consume_save_dashboard
   config = {
-            :"bootstrap.servers" => 'velomobile-01.srvs.cloudkafka.com:9094,velomobile-02.srvs.cloudkafka.com:9094,velomobile-03.srvs.cloudkafka.com:9094',
-            :"group.id"          => "cloudkarafka-example4",
-            :"sasl.username"     => 'xz6befqu',
-            :"sasl.password"     => 'ZnTqLiR0WxwLHX_jdiGChcbi4W-H9Mzd',
-            :"security.protocol" => "SASL_SSL",
-            :"sasl.mechanisms"   => "SCRAM-SHA-256"
+    :"bootstrap.servers" => 'velomobile-01.srvs.cloudkafka.com:9094,velomobile-02.srvs.cloudkafka.com:9094,velomobile-03.srvs.cloudkafka.com:9094',
+    :"group.id"          => "cloudkarafka-example4",
+    :"sasl.username"     => 'xz6befqu',
+    :"sasl.password"     => 'ZnTqLiR0WxwLHX_jdiGChcbi4W-H9Mzd',
+    :"security.protocol" => "SASL_SSL",
+    :"sasl.mechanisms"   => "SCRAM-SHA-256"
   }
 
   topic = "xz6befqu-default"
