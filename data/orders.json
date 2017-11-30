@@ -82,5 +82,229 @@
     "destination": "blok m",
     "est_price": 21213,
     "type": "bike"
+  },
+  {
+    "timestamp": "2017-11-30 14:31:55 +0700",
+    "origin": "kemang",
+    "destination": "blok m",
+    "est_price": 7500,
+    "type": "bike"
+  },
+  {
+    "timestamp": "2017-11-30 14:33:10 +0700",
+    "origin": "kemang",
+    "destination": "blok m",
+    "est_price": 7500,
+    "type": "bike"
+  },
+  {
+    "timestamp": "2017-11-30 14:33:45 +0700",
+    "origin": "blok m",
+    "destination": "kemang",
+    "est_price": 7500,
+    "type": "bike"
+  },
+  {
+    "timestamp": "2017-11-30 14:35:12 +0700",
+    "origin": "blok m",
+    "destination": "kemang",
+    "est_price": 7500,
+    "type": "bike"
+  },
+  {
+    "timestamp": "2017-11-30 14:36:02 +0700",
+    "origin": "blok m",
+    "destination": "kemang",
+    "est_price": 7500,
+    "type": "bike"
+  },
+  {
+    "timestamp": "2017-11-30 14:37:31 +0700",
+    "origin": "kemang",
+    "destination": "blok m",
+    "est_price": 7500,
+    "type": "bike"
+  },
+  {
+    "timestamp": "2017-11-30 14:38:42 +0700",
+    "origin": "kemang",
+    "destination": "blok m",
+    "est_price": 7500,
+    "type": "bike"
+  },
+  {
+    "timestamp": "2017-11-30 14:42:31 +0700",
+    "origin": "kemang",
+    "destination": "blok m",
+    "est_price": 7500,
+    "type": "bike"
+  },
+  {
+    "timestamp": "2017-11-30 14:48:42 +0700",
+    "origin": "blok m",
+    "destination": "kemang",
+    "est_price": 7500,
+    "type": "bike"
+  },
+  {
+    "timestamp": "2017-11-30 14:59:37 +0700",
+    "origin": "kemang",
+    "destination": "blok m",
+    "est_price": 7500,
+    "type": "bike"
+  },
+  {
+    "timestamp": "2017-11-30 14:59:54 +0700",
+    "origin": "blok m",
+    "destination": "kemang",
+    "est_price": 7500,
+    "type": "bike"
+  },
+  {
+    "timestamp": "2017-11-30 15:00:28 +0700",
+    "origin": "sunter",
+    "destination": "kemang",
+    "est_price": 54083,
+    "type": "bike"
+  },
+  {
+    "timestamp": "2017-11-30 15:01:13 +0700",
+    "origin": "kemang",
+    "destination": "sunter",
+    "est_price": 54083,
+    "type": "bike"
+  },
+  {
+    "timestamp": "2017-11-30 15:03:31 +0700",
+    "origin": "kemang",
+    "destination": "blok m",
+    "est_price": 7500,
+    "type": "bike"
+  },
+  {
+    "timestamp": "2017-11-30 15:08:43 +0700",
+    "origin": "sunter",
+    "destination": "kemang",
+    "est_price": 54083,
+    "type": "bike"
+  },
+  {
+    "timestamp": "2017-11-30 15:09:28 +0700",
+    "origin": "kemang",
+    "destination": "sunter",
+    "est_price": 54083,
+    "type": "bike"
+  },
+  {
+    "timestamp": "2017-11-30 15:11:58 +0700",
+    "origin": "blok m",
+    "destination": "sunter",
+    "est_price": 58577,
+    "type": "bike"
+  },
+  {
+    "timestamp": "2017-11-30 15:12:37 +0700",
+    "origin": "blok m",
+    "destination": "kemang",
+    "est_price": 7500,
+    "type": "bike"
+  },
+  {
+    "timestamp": "2017-11-30 15:14:17 +0700",
+    "origin": "blok m",
+    "destination": "kemang",
+    "est_price": 7500,
+    "type": "bike"
+  },
+  {
+    "timestamp": "2017-11-30 15:14:33 +0700",
+    "origin": "kemang",
+    "destination": "sunter",
+    "est_price": 54083,
+    "type": "bike"
+  },
+  {
+    "timestamp": "2017-11-30 15:15:23 +0700",
+    "origin": "kemang",
+    "destination": "blok m",
+    "est_price": 7500,
+    "type": "bike"
+  },
+  {
+    "timestamp": "2017-11-30 15:15:37 +0700",
+    "origin": "blok m",
+    "destination": "sunter",
+    "est_price": 58577,
+    "type": "bike"
+  },
+  {
+    "timestamp": "2017-11-30 15:16:20 +0700",
+    "origin": "sunter",
+    "destination": "kemang",
+    "est_price": 54083,
+    "type": "bike"
+  },
+  {
+    "timestamp": "2017-11-30 15:18:44 +0700",
+    "origin": "kemang",
+    "destination": "blok m",
+    "est_price": 7500,
+    "type": "bike"
+  },
+  {
+    "timestamp": "2017-11-30 15:19:20 +0700",
+    "origin": "blok m",
+    "destination": "sunter",
+    "est_price": 58577,
+    "type": "bike"
+  },
+  {
+    "timestamp": "2017-11-30 15:26:37 +0700",
+    "origin": "sunter",
+    "destination": "blok m",
+    "est_price": 58577,
+    "type": "bike"
+  },
+  {
+    "timestamp": "2017-11-30 15:27:02 +0700",
+    "origin": "blok m",
+    "destination": "kemang",
+    "est_price": 7500,
+    "type": "bike"
+  },
+  {
+    "timestamp": "2017-11-30 15:29:49 +0700",
+    "origin": "kemang",
+    "destination": "blok m",
+    "est_price": 7500,
+    "type": "bike"
+  },
+  {
+    "timestamp": "2017-11-30 15:30:46 +0700",
+    "origin": "blok m",
+    "destination": "sunter",
+    "est_price": 58577,
+    "type": "bike"
+  },
+  {
+    "timestamp": "2017-11-30 15:39:04 +0700",
+    "origin": "sunter",
+    "destination": "taman anggrek",
+    "est_price": 47434,
+    "type": "bike"
+  },
+  {
+    "timestamp": "2017-11-30 15:39:19 +0700",
+    "origin": "taman anggrek",
+    "destination": "blok m",
+    "est_price": 30923,
+    "type": "bike"
+  },
+  {
+    "timestamp": "2017-11-30 15:41:00 +0700",
+    "origin": "blok m",
+    "destination": "kemang",
+    "est_price": 7500,
+    "type": "bike"
   }
 ]

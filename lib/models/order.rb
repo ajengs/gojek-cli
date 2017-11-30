@@ -1,5 +1,7 @@
 # order.rb
 require 'json'
+require 'bundler/setup'
+require 'rdkafka'
 
 module GoCLI
   # Order class
@@ -42,17 +44,20 @@ module GoCLI
         file = File.read("#{Dir.pwd}/data/orders.json")
         data = JSON.parse(file)
       end
-
-      data << {
+      new_order = {
         timestamp: @timestamp,
         origin: @origin.name,
         destination: @destination.name,
         est_price: @est_price,
         type: @type
       }
+
+      data << new_order
+      
       File.open("#{Dir.pwd}/data/orders.json", 'w') do |f|
         f.write JSON.pretty_generate(data)
       end
+      produce(JSON.pretty_generate(new_order))
     end
 
     def self.promo(code)
@@ -72,10 +77,32 @@ module GoCLI
     end
 
   protected
-
     def calculate_est_price
       est_price = Location.calculate_distance(@origin.coord, @destination.coord) * @price_per_km
       est_price.round
+    end
+
+    def produce(data)
+      config = {
+                :"bootstrap.servers" => 'velomobile-01.srvs.cloudkafka.com:9094,velomobile-02.srvs.cloudkafka.com:9094,velomobile-03.srvs.cloudkafka.com:9094',
+                :"group.id"          => "cloudkarafka-example4",
+                :"sasl.username"     => 'xz6befqu',
+                :"sasl.password"     => 'ZnTqLiR0WxwLHX_jdiGChcbi4W-H9Mzd',
+                :"security.protocol" => "SASL_SSL",
+                :"sasl.mechanisms"   => "SCRAM-SHA-256"
+      }
+      # topic = "#{ENV['CLOUDKARAFKA_TOPIC_PREFIX']}test"
+      topic = "xz6befqu-default"
+
+      rdkafka = Rdkafka::Config.new(config)
+      time = Time.now.to_s
+      producer = rdkafka.producer
+      puts "producing #{data}"
+      producer.produce(
+          topic:   topic,
+          payload: data,
+          key:     time
+      ).wait
     end
   end
 end

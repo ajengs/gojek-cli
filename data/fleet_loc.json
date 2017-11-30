@@ -2,8 +2,8 @@
   {
     "driver": "Budi",
     "coord": [
-      15,
-      35
+      40,
+      5
     ],
     "type": "bike"
   },
@@ -18,8 +18,8 @@
   {
     "driver": "Bona",
     "coord": [
-      15,
-      35
+      40,
+      5
     ],
     "type": "bike"
   },
